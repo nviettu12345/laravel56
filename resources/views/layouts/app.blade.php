@@ -7,15 +7,15 @@
     <!-- Main Wrapper Start Here -->
     <div class="wrapper">
         <!-- Banner Popup Start -->
-        <div class="popup_banner">
+        <!-- <div class="popup_banner">
             <span class="popup_off_banner">×</span>
             <div class="banner_popup_area">
                     <img src="{{asset('site')}}/img/banner/pop-banner.jpg" alt="">
             </div>
-        </div>
+        </div> -->
         <!-- Banner Popup End -->
        <!-- Newsletter Popup Start -->
-        <div class="popup_wrapper">
+        <!-- <div class="popup_wrapper">
             <div class="test">
                 <span class="popup_off">Close</span>
                 <div class="subscribe_area text-center mt-60">
@@ -33,14 +33,24 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Newsletter Popup End -->
         <!-- Main Header Area Start Here -->
      @include('components.Header')
         <!-- Main Header Area End Here -->
 
         <!-- Categorie Menu & Slider Area Start Here -->
-     @include('components.slider')
+        <div class="main-page-banner pb-50 off-white-bg">
+            <div class="container">
+                <div class="row">
+                @include('components.verticlemenu')
+                @include('components.slider')
+    
+              </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
         <!-- Categorie Menu & Slider Area End Here -->
    @yield('content')
         <!-- Footer Area Start Here -->

@@ -28,14 +28,28 @@
                                 </ul>
                                 <!-- Dropdown End -->
                             </li>
-                            <li><a href="#">My Account<i class="lnr lnr-chevron-down"></i></a>
-                                <!-- Dropdown Start -->
-                                <ul class="ht-dropdown">
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="register.html">Register</a></li>
-                                </ul>
-                                <!-- Dropdown End -->
-                            </li> 
+                            @if(Auth::check())
+                                <li><a href="#">Tài khoản của tôi<i class="lnr lnr-chevron-down"></i></a>
+                                    <!-- Dropdown Start -->
+                                    <ul class="ht-dropdown">
+                                        <li><a href="login.html">Quản lý</a></li>
+                                        <li><a href="register.html">Giỏ hàng</a></li>
+                                        <li><a href="{{route('get.logout.user')}}">Đăng xuất</a></li>
+                                    </ul>
+                                    <!-- Dropdown End -->
+                                </li> 
+                            @else
+                                <li><a href="#">Tài khoản<i class="lnr lnr-chevron-down"></i></a>
+                                    <!-- Dropdown Start -->
+                                    <ul class="ht-dropdown">
+                                        <li><a href="{{route('get.login')}}">Đăng nhập</a></li>
+                                        <li><a href="{{route('get.register')}}">Đăng ký</a></li>
+                                    </ul>
+                                    <!-- Dropdown End -->
+                                </li> 
+                            @endif
+                            
+
                         </ul>
                     </div>
                     <!-- Header Top End -->
@@ -97,7 +111,7 @@
                         <div class="col-lg-4 col-md-12">
                             <div class="cart-box mt-all-30">
                                 <ul class="d-flex justify-content-lg-end justify-content-center align-items-center">
-                                    <li><a href="#"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro">2</span><span>cart</span></span></a>
+                                    <li><a href="{{route('get.list.shopping.cart')}}"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro">{{\Cart::count()}}</span><span>sản phẩm</span></span></a>
                                         <ul class="ht-dropdown cart-box-width">
                                             <li>
                                                 <!-- Cart Box Start -->

@@ -43,4 +43,16 @@ Route::prefix('admin')->group(function() {
         Route::get('/action/{action}/{id}','AdminArticleController@action')->name('admin.get.action.article');
      
     });
+
+    // quan lý don hang
+    Route::group(['prefix'=> 'trasaction'],function(){
+        Route::get('/','AdminTrasactionController@index')->name('admin.get.list.trasaction');
+       
+    });
+
+    // quan ly thanh vien
+    Route::group(['prefix'=> 'user'],function(){
+        Route::get('/','AdminUserController@index')->name('admin.get.list.user');
+       
+    });
 });

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 
          <!-- Brand Banner Area Start Here -->
@@ -42,7 +43,7 @@
                             </div>
                             <div class="pro-actions">
                                 <div class="actions-primary">
-                                    <a href="cart.html" title="Thêm vào giỏ hàng"> + Thêm vào giỏ hàng</a>
+                                    <a href="{{route('add.shopping.cart',$hot->id)}}" title="Thêm vào giỏ hàng"> + Thêm vào giỏ hàng</a>
                                 </div>
                         
                             </div>

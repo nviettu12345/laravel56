@@ -1,5 +1,16 @@
 @extends('layouts.app')
 @section('content')
+<div class="breadcrumb-area mt-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul class="d-flex align-items-center">
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li class="active"><a href="product.html">{{$cateProduct->c_name}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
        <!-- Shop Page Start -->
     <div class="main-shop-page pt-100 pb-100 ptb-sm-60">
         <div class="container">
