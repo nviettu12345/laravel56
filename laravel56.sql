@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 16, 2019 at 01:47 PM
--- Server version: 5.7.26
--- PHP Version: 7.2.18
+-- Generation Time: Nov 17, 2019 at 03:39 PM
+-- Server version: 5.7.21
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -97,6 +97,33 @@ INSERT INTO `categories` (`id`, `c_name`, `c_slug`, `c_icon`, `c_avatar`, `c_act
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contacts`
+--
+
+DROP TABLE IF EXISTS `contacts`;
+CREATE TABLE IF NOT EXISTS `contacts` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `c_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `c_title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `c_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `c_content` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `c_status` tinyint(4) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `c_name`, `c_title`, `c_email`, `c_content`, `c_status`, `created_at`, `updated_at`) VALUES
+(1, 'Nguyễn Viết TÍ', 'abc', 'nviettu12345@gmail.com', 'abc', 0, NULL, NULL),
+(2, 'teo', 'teo', 'teo@gmail.com', 'teo', 0, '2019-11-17 07:56:56', '2019-11-17 07:56:56');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -106,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -118,7 +145,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2019_10_31_094326_create_categories_table', 1),
 (7, '2019_11_02_044343_create_products_table', 2),
 (8, '2019_11_02_063152_alter_column_pro_content_and_pro_title_seo_in_talble_products', 3),
-(10, '2019_11_12_085535_create_article_table', 4);
+(10, '2019_11_12_085535_create_article_table', 4),
+(11, '2019_11_17_143853_create_contact_table', 5);
 
 -- --------------------------------------------------------
 
