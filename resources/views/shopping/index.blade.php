@@ -47,7 +47,10 @@
                                             <td class="product-price"><span class="amount">{{number_format($product->price,0,',','.') }} VNĐ</span></td>
                                             <td class="product-quantity"><input type="number" value="{{$product->qty}}"></td>
                                             <td class="product-subtotal">{{number_format($product->qty*$product->price,0,',','.') }} VNĐ</td>
-                                            <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                            <td class="product-remove"> 
+                                            <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                            </td>
                                         </tr>
                                         <?php $i++;?>
                                         @endforeach
@@ -60,33 +63,27 @@
                             <div class="row">
                                <!-- Cart Button Start -->
                                 <div class="col-md-8 col-sm-12">
-                                    <div class="buttons-cart">
-                                        <input type="submit" value="Update Cart">
-                                        <a href="#">Continue Shopping</a>
-                                    </div>
+                                 
                                 </div>
                                 <!-- Cart Button Start -->
                                 <!-- Cart Totals Start -->
                                 <div class="col-md-4 col-sm-12">
                                     <div class="cart_totals float-md-right text-md-right">
-                                        <h2>Cart Totals</h2>
+                                        <h2>Tổng tiền</h2>
                                         <br>
                                         <table class="float-md-right">
                                             <tbody>
-                                                <tr class="cart-subtotal">
-                                                    <th>Subtotal</th>
-                                                    <td><span class="amount">$215.00</span></td>
-                                                </tr>
+                                        
                                                 <tr class="order-total">
-                                                    <th>Total</th>
+                                                    <th></th>
                                                     <td>
-                                                        <strong><span class="amount">$215.00</span></strong>
+                                                        <strong><span class="amount">{{\Cart::subtotal()}}</span></strong>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                         <div class="wc-proceed-to-checkout">
-                                            <a href="#">Proceed to Checkout</a>
+                                            <a href="#">Thanh toán</a>
                                         </div>
                                     </div>
                                 </div>

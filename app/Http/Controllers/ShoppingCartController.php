@@ -6,8 +6,9 @@ use App\Models\Product;
 use Cart;
 use Illuminate\Http\Request;
 
-class ShoppingCartController extends Controller
+class ShoppingCartController extends FrontendController
 {
+    // them gio hang
     public function addProduct(Request $request,$id)
     {
         $product=Product::select('pro_name','id','pro_price','pro_sale','pro_avatar')->find($id);
@@ -27,11 +28,17 @@ class ShoppingCartController extends Controller
     
         return redirect()->back();
     }
-
+    // danh sach gio hang
     public function getListShoppingCart()
     {
         $products=\Cart::content();
         return view('shopping.index',compact('products'));
 
+    }
+
+    // form thanh toan
+    public function getFormPay()
+    {
+        return view('shopping.pay');
     }
 }

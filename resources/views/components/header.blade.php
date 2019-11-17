@@ -153,7 +153,7 @@
                                                        <li>Total <span>$64.95</span></li>
                                                    </ul>
                                                     <div class="cart-actions text-center">
-                                                        <a class="cart-checkout" href="checkout.html">Checkout</a>
+                                                        <a class="cart-checkout" href="{{route('get.form.pay')}}">Thanh toán</a>
                                                     </div>
                                                 </div>
                                                 <!-- Cart Footer Inner End -->
