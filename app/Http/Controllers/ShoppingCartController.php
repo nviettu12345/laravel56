@@ -39,6 +39,7 @@ class ShoppingCartController extends FrontendController
     // form thanh toan
     public function getFormPay()
     {
-        return view('shopping.pay');
+        $products=\Cart::content();
+        return view('shopping.pay',compact('products'));
     }
 }
