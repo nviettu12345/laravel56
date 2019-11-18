@@ -5,7 +5,7 @@
                 <div class="breadcrumb">
                     <ul class="d-flex align-items-center">
                         <li><a href="/">Trang chủ</a></li>
-                        <li class="active"><a href="">Thanh toán</a></li>
+                        <li class="active"><a href="{{route('get.form.pay')}}">Thanh toán</a></li>
                     </ul>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                                 <div class="col-md-12">
                                     <div class="checkout-form-list mb-sm-30">
                                         <label>Họ tên <span class="required">*</span></label>
-                                        <input type="text" placeholder="">
+                                        <input type="text" value="{{get_data_user('web','name')}}" name="name">
                                     </div>
                                 </div>
                          
@@ -30,28 +30,27 @@
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Địa chỉ <span class="required">*</span></label>
-                                        <input type="text" placeholder="Street address">
+                                        <input name="address" type="text" placeholder="Street address">
                                     </div>
                                 </div>
-            
-                                <div class="col-md-12">
-                                    <div class="checkout-form-list mb-30">
-                                        <label>Thành phố <span class="required">*</span></label>
-                                        <input type="text" placeholder="Town / City">
-                                    </div>
-                                </div>
-            
-                  
+
                                 <div class="col-md-12">
                                     <div class="checkout-form-list mb-30">
                                         <label>Email Address <span class="required">*</span></label>
-                                        <input type="email" placeholder="">
+                                        <input type="email" value="{{get_data_user('web','email')}}">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list mb-30">
-                                        <label>Phone  <span class="required">*</span></label>
-                                        <input type="text" placeholder="Postcode / Zip">
+                                        <label>Số điện thoại  <span class="required">*</span></label>
+                                        <input type="text" name="phone" value="{{get_data_user('web','phone')}}">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="checkout-form-list mb-30">
+                                        <label>Ghi chú <span class="required">*</span></label>
+                                        <textarea class="form-control" name="note"></textarea>
                                     </div>
                                 </div>
 

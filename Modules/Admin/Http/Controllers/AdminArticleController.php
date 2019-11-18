@@ -62,6 +62,7 @@ class AdminArticleController extends Controller
         if($requestArticle->hasFile('a_avatar')){
             $path='upload/article';
             $file=upload_image('a_avatar',$path,$requestArticle);
+      
             if(isset($file))
             {
                 $article->a_avatar=$file;

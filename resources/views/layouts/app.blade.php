@@ -40,7 +40,7 @@
         <!-- Main Header Area End Here -->
 
         <!-- Categorie Menu & Slider Area Start Here -->
-        <div class="main-page-banner pb-50 off-white-bg">
+        <div class="main-page-banner pb-50 off-white-bg" id="main-page-banner">
             <div class="container">
                 <div class="row">
                 @include('components.verticlemenu')
@@ -86,6 +86,25 @@
     <script src="{{asset('site')}}/js/plugins.js"></script>
     <!-- Main activaion js -->
     <script src="{{asset('site')}}/js/main.js"></script>
+    <script>
+        $(document).ready(function(){
+            var host = window.location.host;
+            if(host=='localhost')
+            {
+alert(base_url);
+}
+
+if ( window.location.pathname == '/' ){
+    console.log("trang chu");
+
+} else {
+    // Other page
+    console.log(window.location.pathname);
+}
+
+       });
+
+        </script>
 </body>
 
 </html>

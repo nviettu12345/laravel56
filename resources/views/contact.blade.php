@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
       <!-- Breadcrumb Start -->
       <div class="breadcrumb-area mt-30">
             <div class="container">
@@ -52,5 +53,4 @@
             </div>
         </div>
         <!-- Contact Email Area End -->
-
-@stop
+ @stop

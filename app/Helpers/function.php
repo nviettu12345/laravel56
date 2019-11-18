@@ -1,5 +1,8 @@
 <?php
-    if(!function_exists('upload_image'))
+
+use Illuminate\Support\Facades\Auth;
+
+if(!function_exists('upload_image'))
     {
         function upload_image($filename='',$path='',$request)
         {
@@ -18,4 +21,15 @@
 
         }
     }
+
+    if(!function_exists('get_data_user'))
+    {
+         function get_data_user($type,$field='id')
+        {   
+          return Auth::guard($type)->user()?Auth::guard($type)->user()->$field:'';
+     
+        }
+    }
+
+
 ?>

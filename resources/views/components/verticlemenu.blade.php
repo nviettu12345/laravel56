@@ -1,9 +1,9 @@
 
                     <!-- Vertical Menu Start Here -->
-                    <div class="col-xl-3 col-lg-4 d-none d-lg-block">
+                    <div class="col-xl-3 col-lg-4 ">
                         <div class="vertical-menu mb-all-30">
                             <nav>
-                                <ul class="vertical-menu-list">
+                                <ul class="vertical-menu-list" id="vertical-menu-list">
                                     <li class=""><a href="shop.html"><span><img src="{{asset('site')}}/img/vertical-menu/1.png" alt="menu-icon"></span>Automotive & Motorcycle<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 
                                         <ul class="ht-dropdown mega-child">

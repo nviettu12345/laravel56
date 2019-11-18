@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Carbon\Carbon;
-class ContactController extends Controller
+class ContactController extends FrontendController
 {
     public function getContact()
     {

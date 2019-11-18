@@ -83,7 +83,7 @@
                                             </tbody>
                                         </table>
                                         <div class="wc-proceed-to-checkout">
-                                            <a href="#">Thanh toán</a>
+                                            <a href="{{route('get.form.pay')}}">Thanh toán</a>
                                         </div>
                                     </div>
                                 </div>
