@@ -14,13 +14,20 @@ class ShoppingCartController extends FrontendController
         $product=Product::select('pro_name','id','pro_price','pro_sale','pro_avatar')->find($id);
         if(!$product) redirect()->route('/');
 
+        $price=$product->pro_price;
+        if($product->pro_sale)
+        {
+            $price=$price*(100-$product->pro_sale)/100;
+        }
         $cart=[
             'id'   =>$id,
             'name' => $product->pro_name,
             'qty'  => 1,
-            'price'=> $product->pro_price,
+            'price'=> $price,
             'options' => [
-                'avatar' => $product->pro_avatar
+                'avatar' => $product->pro_avatar,
+                'sale' => $product->pro_sale,
+                'price_old' => $product->pro_price
                 ]
         ];
 
@@ -41,5 +48,29 @@ class ShoppingCartController extends FrontendController
     {
         $products=\Cart::content();
         return view('shopping.pay',compact('products'));
+    }
+
+    public function deleteProductItem($key)
+    {
+        \Cart::remove($key);
+        return \redirect()->back();
+    }
+
+    public function saveInfoShoppingCart(Request $request)
+    {
+      $totalMoney=\Cart::subtotal();
+      $transactionId=Transaction::insertGetId([
+            'tr_user_id' => get_data_user('web'),
+            'tr_total' => $totalMoney,
+            'tr_note' => $request->note,
+            'tr_address' => $request->address,
+            'tr_phone' => $request->phone
+      ]);
+
+      if($transactionId)
+      {
+        $products=\Cart::content();
+        foreach
+      }
     }
 }

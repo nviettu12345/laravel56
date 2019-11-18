@@ -16,9 +16,11 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="checkbox-form mb-sm-40">
+                        <form action="" method="POST">
+                        @csrf
                             <h3>Thông tin thanh toán</h3>
                             <div class="row">
-                      
+                    
                                 <div class="col-md-12">
                                     <div class="checkout-form-list mb-sm-30">
                                         <label>Họ tên <span class="required">*</span></label>
@@ -60,9 +62,9 @@
                                         <input type="submit" class="btn btn-success" value="xác nhận thông tin">
                                     </div>
                                 </div>
-                            
+                                
                             </div>
-                   
+                            </form>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">

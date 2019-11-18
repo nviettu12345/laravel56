@@ -49,7 +49,7 @@
                                             <td class="product-subtotal">{{number_format($product->qty*$product->price,0,',','.') }} VNĐ</td>
                                             <td class="product-remove"> 
                                             <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                            <a href="{{route('delete.shopping.cart',$key)}}"><i class="fa fa-times" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                         <?php $i++;?>
