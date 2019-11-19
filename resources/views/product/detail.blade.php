@@ -1,19 +1,22 @@
 @extends('layouts.app')
 @section('content')
-<div class="breadcrumb-area mt-30">
+        @if(isset($productDetail))
+    
+     
+        <div class="breadcrumb-area mt-30">
             <div class="container">
                 <div class="breadcrumb">
                     <ul class="d-flex align-items-center">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop</a></li>
-                        <li class="active"><a href="product.html">Products</a></li>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="shop.html">sản phẩm</a></li>
+                        <li class="active"><a href="product.html">{{$productDetail->pro_name}}</a></li>
                     </ul>
                 </div>
             </div>
             <!-- Container End -->
         </div>
-        <!-- Product Thumbnail Start -->
-        <div class="main-product-thumbnail ptb-100 ptb-sm-60">
+     <!-- Product Thumbnail Start -->
+     <div class="main-product-thumbnail ptb-100 ptb-sm-60">
             <div class="container">
                 <div class="thumb-bg">
                     <div class="row">
@@ -54,7 +57,7 @@
                         <!-- Thumbnail Description Start -->
                         <div class="col-lg-7">
                             <div class="thubnail-desc fix">
-                                <h3 class="product-header">Faded Short Sleeves T-shirt</h3>
+                                <h3 class="product-header">{{$productDetail->pro_name}}</h3>
                                 <div class="rating-summary fix mtb-10">
                                     <div class="rating">
                                         <i class="fa fa-star"></i>
@@ -64,14 +67,14 @@
                                         <i class="fa fa-star-o"></i>
                                     </div>
                                     <div class="rating-feedback">
-                                        <a href="#">(1 review)</a>
-                                        <a href="#">add to your review</a>
+                                        <a href="#">(1 đánh giá)</a>
+                                        <a href="#">thêm đánh giá</a>
                                     </div>
                                 </div>
                                 <div class="pro-price mtb-30">
                                     <p class="d-flex align-items-center"><span class="prev-price">16.51</span><span class="price">$15.19</span><span class="saving-price">save 8%</span></p>
                                 </div>
-                                <p class="mb-20 pro-desc-details">Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
+                                <p class="mb-20 pro-desc-details">{{$productDetail->pro_description}}</p>
                                 <div class="product-size mb-20 clearfix">
                                     <label>Size</label>
                                     <select class="">
@@ -133,13 +136,13 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <ul class="main-thumb-desc nav tabs-area" role="tablist">
-                            <li><a class="active" data-toggle="tab" href="#dtail">Product Details</a></li>
-                            <li><a data-toggle="tab" href="#review">Reviews 1</a></li>
+                            <li><a class="active" data-toggle="tab" href="#dtail">Chi tiết</a></li>
+                            <li><a data-toggle="tab" href="#review">Đánh giá và bình luận</a></li>
                         </ul>
                         <!-- Product Thumbnail Tab Content Start -->
                         <div class="tab-content thumb-content border-default">
                             <div id="dtail" class="tab-pane fade show active">
-                                <p>Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</p>
+                            {{$productDetail->pro_content}}
                             </div>
                             <div id="review" class="tab-pane fade">
                                 <!-- Reviews Start -->
@@ -252,12 +255,14 @@
             <!-- Container End -->
         </div>
         <!-- Product Thumbnail Description End -->
+
+        @endif
         <!-- Realted Products Start Here -->
         <div class="hot-deal-products off-white-bg pt-100 pb-90 pt-sm-60 pb-sm-50">
             <div class="container">
                <!-- Product Title Start -->
                <div class="post-title pb-30">
-                   <h2>Realted Products</h2>
+                   <h2>Sản phẩm liên quan</h2>
                </div>
                <!-- Product Title End -->
                 <!-- Hot Deal Product Activation Start -->

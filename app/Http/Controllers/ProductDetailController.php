@@ -19,7 +19,7 @@ class ProductDetailController extends FrontendController
             $viewData=[
                 'productDetail' => $productDetail
             ];
-
+       
             return view('product.detail',$viewData);
         }
        

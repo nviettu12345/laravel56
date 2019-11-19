@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Transaction;
+use App\Models\Order;
+use Carbon\Carbon;
 use Cart;
 use Illuminate\Http\Request;
 
@@ -58,19 +61,33 @@ class ShoppingCartController extends FrontendController
 
     public function saveInfoShoppingCart(Request $request)
     {
-      $totalMoney=\Cart::subtotal();
+      $totalMoney=str_replace(',','',\Cart::subtotal(0,3));
+
       $transactionId=Transaction::insertGetId([
             'tr_user_id' => get_data_user('web'),
-            'tr_total' => $totalMoney,
+            'tr_total' => (int)$totalMoney,
             'tr_note' => $request->note,
             'tr_address' => $request->address,
-            'tr_phone' => $request->phone
+            'tr_phone' => $request->phone,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
       ]);
 
       if($transactionId)
       {
         $products=\Cart::content();
-        foreach
+        foreach($products as $product)
+        {
+            Order::insert([
+                'or_transaction_id' => $transactionId,
+                'or_product_id' => $product->id,
+                'or_qty' => $product->qty,
+                'or_price' => $product->options->price_old,
+                'or_sale' =>$product->options->sale
+            ]);
+        }
       }
+      \Cart::destroy();
+      return redirect('/');
     }
 }

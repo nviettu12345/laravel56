@@ -56,4 +56,5 @@
               @endif
           </tbody>
         </table>
+    </div>
 @stop

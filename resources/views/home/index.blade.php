@@ -28,7 +28,7 @@
                     <div class="single-product">
                         <!-- Product Image Start -->
                         <div class="pro-img">
-                            <a href="product.html">
+                            <a href="{{route('get.detail.product',[str_slug($hot->pro_name),$hot->id])}}">
                                 <img class="primary-img" src="{{asset('upload/product/'.$hot->pro_avatar)}}" alt="{{$hot->pro_name}}">
                                 <img class="secondary-img" src="{{asset('upload/product/'.$hot->pro_avatar)}}" alt="{{$hot->pro_name}}">
                             </a>
@@ -37,7 +37,7 @@
                         <!-- Product Content Start -->
                         <div class="pro-content">
                             <div class="pro-info">
-                                <h4><a href="product.html">{{$hot->pro_name}}</a></h4>
+                                <h4><a href="{{route('get.detail.product',[str_slug($hot->pro_name),$hot->id])}}">{{$hot->pro_name}}</a></h4>
                                 <p><span class="price ">{{number_format($hot->pro_price)}}</span><del class="prev-price">{{number_format($hot->pro_price)}}</del></p>
                                 <div class="label-product l_sale">{{number_format($hot->pro_sale)}}<span class="symbol-percent">%</span></div>
                             </div>

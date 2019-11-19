@@ -88,11 +88,8 @@
     <script src="{{asset('site')}}/js/main.js"></script>
     <script>
         $(document).ready(function(){
-            var host = window.location.host;
-            if(host=='localhost')
-            {
-alert(base_url);
-}
+          
+
 
 if ( window.location.pathname == '/' ){
     console.log("trang chu");

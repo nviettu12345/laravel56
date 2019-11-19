@@ -47,6 +47,7 @@ Route::prefix('admin')->group(function() {
     // quan lý don hang
     Route::group(['prefix'=> 'trasaction'],function(){
         Route::get('/','AdminTrasactionController@index')->name('admin.get.list.trasaction');
+        Route::get('/view/{id}','AdminTrasactionController@viewOrder')->name('admin.get.view.order');
        
     });
 
