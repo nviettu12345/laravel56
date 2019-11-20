@@ -1,7 +1,50 @@
 @extends('layouts.app')
 @section('content')
         @if(isset($productDetail))
-    
+    <style>
+        .tab-content h2{font-size: 24px !important;}
+        .tab-content h3{font-size: 20px !important;}
+        .tab-content h4{font-size: 18px !important;}
+        .tab-content img {
+            margin: 0 auto;
+            max-width: 100%;
+            display: block;
+            text-align: center;
+        }
+        .component_rating_content{
+            display: flex;
+            align-items: center;
+        }
+        .rating_item{
+            width:20%;
+            position: relative;
+        }
+        .rating_item span{
+            font-size: 100px;
+            color: #ff9705;
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+        }
+        .rating_item b{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            color: white;
+            font-size: 20px;
+        }
+        .list_rating{
+            width: 60%;
+            padding: 20px;
+        }
+        .item_rating{
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+    </style>
      
         <div class="breadcrumb-area mt-30">
             <div class="container">
@@ -57,7 +100,7 @@
                         <!-- Thumbnail Description Start -->
                         <div class="col-lg-7">
                             <div class="thubnail-desc fix">
-                                <h3 class="product-header">{{$productDetail->pro_name}}</h3>
+                                <h1 class="product-header">{{$productDetail->pro_name}}</h1>
                                 <div class="rating-summary fix mtb-10">
                                     <div class="rating">
                                         <i class="fa fa-star"></i>
@@ -142,114 +185,39 @@
                         <!-- Product Thumbnail Tab Content Start -->
                         <div class="tab-content thumb-content border-default">
                             <div id="dtail" class="tab-pane fade show active">
-                            {{$productDetail->pro_content}}
+                            <?php echo $productDetail->pro_content ?>
                             </div>
-                            <div id="review" class="tab-pane fade">
-                                <!-- Reviews Start -->
-                                <div class="review border-default universal-padding">
-                                    <div class="group-title">
-                                        <h2>customer review</h2>
+                            <div class="component_rating">
+                                <h3> Đánh giá sản phẩm </h3>
+                                <div class="component_rating_content">                       
+                                    <div class="rating_item">
+                                        <span class="fa fa-star"></span><b>2.5</b>
                                     </div>
-                                    <h4 class="review-mini-title">Truemart</h4>
-                                    <ul class="review-list">
-                                        <!-- Single Review List Start -->
-                                        <li>
-                                            <span>Quality</span>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <label>Truemart</label>
-                                        </li>
-                                        <!-- Single Review List End -->
-                                        <!-- Single Review List Start -->
-                                        <li>
-                                            <span>price</span>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <label>Review by <a href="https://themeforest.net/user/hastech">Truemart</a></label>
-                                        </li>
-                                        <!-- Single Review List End -->
-                                        <!-- Single Review List Start -->
-                                        <li>
-                                            <span>value</span>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <label>Posted on 7/20/18</label>
-                                        </li>
-                                        <!-- Single Review List End -->
-                                    </ul>
-                                </div>
-                                <!-- Reviews End -->
-                                <!-- Reviews Start -->
-                                <div class="review border-default universal-padding mt-30">
-                                    <h2 class="review-title mb-30">You're reviewing: <br><span>Faded Short Sleeves T-shirt</span></h2>
-                                    <p class="review-mini-title">your rating</p>
-                                    <ul class="review-list">
-                                        <!-- Single Review List Start -->
-                                        <li>
-                                            <span>Quality</span>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </li>
-                                        <!-- Single Review List End -->
-                                        <!-- Single Review List Start -->
-                                        <li>
-                                            <span>price</span>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </li>
-                                        <!-- Single Review List End -->
-                                        <!-- Single Review List Start -->
-                                        <li>
-                                            <span>value</span>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </li>
-                                        <!-- Single Review List End -->
-                                    </ul>
-                                    <!-- Reviews Field Start -->
-                                    <div class="riview-field mt-40">
-                                        <form autocomplete="off" action="#">
-                                            <div class="form-group">
-                                                <label class="req" for="sure-name">Nickname</label>
-                                                <input type="text" class="form-control" id="sure-name" required="required">
+                                    <div class="list_rating">
+                                    @for($i=1;$i<=5;$i++)  
+                                            <div class="item_rating">
+                                                    <div style="width:10%">
+                                                    {{$i}} <span class="fa fa-star"></span>
+                                                   </div>
+                                                <div style="width:70%;margin:0 20px">
+                                                    <span style="width:100%;height:6px;display:block;border:1px solid #dedede"><b></b></span>
+                                                </div>
+                                                <div style="width:20%">290 đánh giá</div>
+                                               
                                             </div>
-                                            <div class="form-group">
-                                                <label class="req" for="subject">Summary</label>
-                                                <input type="text" class="form-control" id="subject" required="required">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="req" for="comments">Review</label>
-                                                <textarea class="form-control" rows="5" id="comments" required="required"></textarea>
-                                            </div>
-                                            <button type="submit" class="customer-btn">Submit Review</button>
-                                        </form>
+                                            @endfor
                                     </div>
-                                    <!-- Reviews Field Start -->
+                                    <div style="width:20%">
+                                        <a>gởi đánh giá của bạn</a>
+                                    </div>
                                 </div>
-                                <!-- Reviews End -->
                             </div>
+                   
                         </div>
                         <!-- Product Thumbnail Tab Content End -->
                     </div>
-                </div>
+               
+              
                 <!-- Row End -->
             </div>
             <!-- Container End -->

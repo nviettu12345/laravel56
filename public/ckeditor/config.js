@@ -5,10 +5,13 @@
 
 CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
-	// config.language = 'fr';
+    config.language = 'vi';
 	// config.uiColor = '#AADC6E';
 	config.allowedContent = true;
     config.disallowedContent = 'img {width,height}';
     config.extraAllowedContent = 'img[title]';
     config.entities = false;
+	config.filebrowserBrowseUrl= '/ckfinder/ckfinder.html',
+    config.filebrowserUploadUrl= '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+ 
 };

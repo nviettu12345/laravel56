@@ -107,6 +107,7 @@
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script> -->
       <script src="{{asset('theme_admin/js/dashboard.js')}}"></script>
       <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+      <script src="{{asset('ckfinder/ckfinder.js')}}"></script>
       <script>
         function readURL(input) {
           if(input.files && input.files[0]){
@@ -122,11 +123,7 @@
            readURL(this); 
         });
 
-        CKEDITOR.replace( 'pro_content', {
-     filebrowserBrowseUrl: '/' +'ckfinder/ckfinder.html',
-     filebrowserImageBrowseUrl: '/' +'ckfinder/ckfinder.html?Type=Images',
-      disallowedContent: 'img{width,height}'
-});
+        CKEDITOR.replace( 'pro_content')
       </script>
           @yield('script')
       </body>
